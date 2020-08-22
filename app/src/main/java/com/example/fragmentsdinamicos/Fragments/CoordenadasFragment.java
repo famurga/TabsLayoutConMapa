@@ -78,11 +78,13 @@ public class CoordenadasFragment extends Fragment {
             Log.e("coordenadas","Longitud:"+loc.getLongitude());
             Log.e("Coordenadas 2","Latitud:"+loc.getLatitude());
 
-      /*
+/*
        txtLatitud.setText(String.valueOf(loc.getLatitude()));
         txtLongitud.setText(String.valueOf(loc.getLongitude()));
 
-       */
+ */
+
+
 
 
 

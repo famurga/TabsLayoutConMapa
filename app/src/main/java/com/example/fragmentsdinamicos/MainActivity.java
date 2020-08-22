@@ -1,19 +1,26 @@
 package com.example.fragmentsdinamicos;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.example.fragmentsdinamicos.Controlador.PagerController;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
 public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     TabItem tab1, tab2, tab3;
     PagerController pagerAdapter;
+    final  private  int REQUEST_CODE_PERMISION=111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        solicitarpermisos();
+    }
+
+
+
+    public void solicitarpermisos(){
+
+        int permisoUbicacion= ActivityCompat.checkSelfPermission(MainActivity.this, ACCESS_FINE_LOCATION);
+        int permisoUbicacion2= ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION);
+
+        if(permisoUbicacion != PackageManager.PERMISSION_GRANTED || permisoUbicacion2 != PackageManager.PERMISSION_GRANTED){
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                requestPermissions(new String[]{ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},REQUEST_CODE_PERMISION);
+
+
+
+            }
+        }
+
+
 
     }
 }

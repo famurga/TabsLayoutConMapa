@@ -51,13 +51,16 @@ public class CoordenadasFragment extends Fragment {
 
     private void localizacion() {
 
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(getActivity(), new String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION
             },1000) ;
 
         }
+
+
 
 
         txtLatitud = getActivity().findViewById(R.id.txtLati);
@@ -73,9 +76,14 @@ public class CoordenadasFragment extends Fragment {
 
 
             Log.e("coordenadas","Longitud:"+loc.getLongitude());
+            Log.e("Coordenadas 2","Latitud:"+loc.getLatitude());
 
-        txtLatitud.setText(String.valueOf(loc.getLatitude()));
+      /*  txtLatitud.setText(String.valueOf(loc.getLatitude()));
         txtLongitud.setText(String.valueOf(loc.getLongitude()));
+
+       */
+
+
 
         }
     }

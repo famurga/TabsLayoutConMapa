@@ -6,10 +6,29 @@
     android:background="@color/colorAccent"
     tools:context=".Fragments.MapaFragment">
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-    </com.google.android.gms.maps.MapView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+        </com.google.android.gms.maps.MapView>
+
+
+
+
+
+    </LinearLayout>
+     <Button
+    android:id="@+id/btnPasarDato"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:text="Pasar Dato"
+    android:layout_height="wrap_content"/>
+
+
 
 </FrameLayout>

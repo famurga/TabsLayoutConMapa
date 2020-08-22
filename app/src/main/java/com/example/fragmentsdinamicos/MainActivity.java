@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager  = findViewById(R.id.viewpager);
         tab1 = findViewById(R.id.tabMapa);
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(tab.getPosition()==2){
                     pagerAdapter.notifyDataSetChanged();
+
                 }
             }
 

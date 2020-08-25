@@ -1,5 +1,6 @@
 package com.example.fragmentsdinamicos;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -16,15 +17,19 @@ import com.google.android.material.tabs.TabLayout;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int PERMISSION_REQUEST_CODE =1 ;
     TabLayout tabLayout;
     ViewPager viewPager;
     TabItem tab1, tab2, tab3;
     PagerController pagerAdapter;
     final  private  int REQUEST_CODE_PERMISION=111;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
 

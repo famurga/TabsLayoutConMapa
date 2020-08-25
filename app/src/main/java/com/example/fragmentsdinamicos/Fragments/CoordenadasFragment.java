@@ -70,37 +70,7 @@ public class CoordenadasFragment extends Fragment {
         gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LocationManager locationManager = (LocationManager) getActivity().
-                        getSystemService(Context.LOCATION_SERVICE);
-
-                LocationListener locationListener = new LocationListener() {
-                    @Override
-                    public void onLocationChanged(Location location) {
-
-                        txtLatitud.setText(String.valueOf(location.getLatitude()));
-
-
-                    }
-
-                    @Override
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                    }
-
-                    @Override
-                    public void onProviderEnabled(String provider) {
-
-                    }
-
-                    @Override
-                    public void onProviderDisabled(String provider) {
-
-                    }
-                };
-
-                int permision = ContextCompat.checkSelfPermission(getActivity(), ACCESS_FINE_LOCATION);
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
-                        locationListener);
+             miLocalizacion();
             }
         });
 
@@ -117,6 +87,43 @@ public class CoordenadasFragment extends Fragment {
 
 
         return v;
+    }
+
+
+    public void miLocalizacion(){
+
+        LocationManager locationManager = (LocationManager) getActivity().
+                getSystemService(Context.LOCATION_SERVICE);
+
+        LocationListener locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+
+                txtLatitud.setText(String.valueOf(location.getLatitude()));
+                txtLongitud.setText(String.valueOf(location.getLongitude()));
+
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+
+        int permision = ContextCompat.checkSelfPermission(getActivity(), ACCESS_FINE_LOCATION);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
+                locationListener);
     }
 
 
